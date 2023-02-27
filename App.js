@@ -3,10 +3,14 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 import * as Sharing from 'expo-sharing';
 import * as Print from 'expo-print';
+import { useState } from 'react';
 
 export default function App() {
 
+  const [steps, setSteps] = useState([]);
+
   const onPress = async () => {
+    console.log("Button Pressed");
     const html = `
       <html>
         <body>
@@ -14,23 +18,29 @@ export default function App() {
         </body>
       </html>
     `;
+
     const {uri} = await Print.printToFileAsync({html});
 
-    console.log("Before");
+    console.log("Before Sharing");
+    
     await Sharing.shareAsync(uri, {
       UTI:".pdf",
       dialogTitle:"SHare ITem",
       mimeType:"application/pdf"
     });
-    console.log("After")
+    
+    console.log("After sharing")
   };
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
 
-      <Pressable onPress={onPress}>
-        <Text>
+      <Pressable onPress={onPress} style={{
+        padding: 20,
+        backgroundColor:"limegreen",
+        borderRadius: 10
+      }}>
+        <Text style={{ color:"white" }}>
           Share
         </Text>
       </Pressable>
