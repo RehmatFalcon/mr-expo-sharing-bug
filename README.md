@@ -12,6 +12,7 @@ We get this warning.
 
 ### Expo Environment
 
+```md
 expo-env-info 1.0.5 environment info:
 System:
 OS: Linux 5.19 Ubuntu 22.04.1 LTS 22.04.1 LTS (Jammy Jellyfish)
