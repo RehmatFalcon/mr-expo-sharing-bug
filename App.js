@@ -26,7 +26,6 @@ export default function App() {
     await Sharing.shareAsync(uri, {
       UTI:".pdf",
       dialogTitle:"SHare ITem",
-      mimeType:"application/pdf"
     });
     
     console.log("After sharing")
